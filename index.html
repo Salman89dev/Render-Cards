@@ -1,25 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center mt-5 mb-5">
-                <h1>E-commerce Products</h1>
-            </div>
-        </div>
-        <div class="row">
-        </div>
-      </div>
 
-    <script src="main.js"></script>
+<style>
+    .card-body{
+        box-shadow: 3px 8px 10px #efefef;
+    border: 0px;
+    
+    }
+</style>
+
+<body class="p-4">
+
+<h2 class="text-center mb-5">Mobile Cards</h2>
+<div class="container">
+    <div class="filterModel">
+        <form class="filterForm">
+            <select  class="selectTage">
+                
+                <option value="Company">Company</option>
+                <option value="Model">Model</option>
+                <option value="Price">Price</option>
+                <option value="Camera">Camera</option>
+            </select>
+            <input type="text"  id="searchName" placeholder="Enter Text">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+<div class="container mt-3">
+    <div class="row">
+        <p class="selectFilterPara">Select Filter</p>
+    </div>
+
+</div>
+
+<script src="main.js"></script>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAC-im557zEdB5gDWqT6hhsVJoZuhNXAK0",
+      authDomain: "filter-project-af2dc.firebaseapp.com",
+      projectId: "filter-project-af2dc",
+      storageBucket: "filter-project-af2dc.appspot.com",
+      messagingSenderId: "746254627980",
+      appId: "1:746254627980:web:022845728e71dbc30377a9"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+
+
 </body>
 </html>

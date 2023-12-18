@@ -1,74 +1,238 @@
-let container=document.querySelector(".row");
+let row=document.querySelector(".row")
+let filterForm=document.querySelector(".filterForm");
+let selectFilterPara=document.querySelector(".selectFilterPara");
 
-let arr=[
+
+
+
+
+
+let arr = [
     {
-    "id": 4,
-    "title": "newTitle",
-    "price": 205,
-    "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-    "image_url": "https://i.imgur.com/R2PN9Wq.jpeg",
-    "color":[" red"," black"," orange"],
+        brand: "Samsung",
+        model: "SamsungA30",
+        price: "40000",
+        camera: "40px",
+        ram: "8gb",
+        rom : "128gb",
+        
     },
     {
-    "id": 7,
-    "title": "Ergonomic Wooden Tuna",
-    "price": 743,
-    "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-    "image_url": "https://i.imgur.com/mp3rUty.jpeg",
-    "color":[" red"," black"," orange"],
+        brand: "Samsung",
+        model: "SamsungA10",
+        price: "40000",
+        camera: "30px",
+        ram: "4gb",
+        rom : "128gb",
+        
     },
     {
-    "id": 9,
-    "title": "Electronic Bronze Chips",
-    "price": 808,
-    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-    "image_url": "https://i.imgur.com/R3iobJA.jpeg",
-    "color":[" red"," black"," orange"],
+        brand: "Samsung",
+        model: "SamsungA20",
+        price: "40000",
+        camera: "10px",
+        ram: "4gb",
+        rom : "128gb",
+        
     },
     {
-    "id": 11,
-    "title": "Awesome Bronze Car",
-    "price": 382,
-    "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-    "image_url": "https://i.imgur.com/cBuLvBi.jpeg",
-    "color":[" red"," black"," orange"],
+        brand: "Vivo",
+        model: "VivoY20",
+        price: "20000",
+        camera: "40px",
+        ram: "2gb",
+        rom : "32gb",
+        
     },
     {
-    "id": 12,
-    "title": "Recycled Rubber Cheese",
-    "price": 30,
-    "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-    "image_url": "https://i.imgur.com/KeqG6r4.jpeg",
-    "color":[" red"," black"," orange"],
-    }
-];
+        brand: "Vivo",
+        model: "VivoY11",
+        price: "20000",
+        camera: "70px",
+        ram: "3gb",
+        rom : "32gb",
+        
+    },
+    {
+        brand: "Vivo",
+        model: "VivoY15",
+        price: "30000",
+        camera: "40px",
+        ram: "4gb",
+        rom : "64gb",
+        
+    },
+    {
+        brand: "Motorola",
+        model: "Motorola123",
+        price: "5000",
+        camera: "2px",
+        ram: "2gb",
+        rom : "32gb",
+        
+    },
+    {
+        brand: "Iphone",
+        model: "Iphone12",
+        price: "300000",
+        camera: "40px",
+        ram: "8gb",
+        rom : "128gb",
+        
+    },
+    {
+        brand: "Iphone",
+        model: "Iphone13",
+        price: "300000",
+        camera: "40px",
+        ram: "8gb",
+        rom : "128gb",
+        
+    },
+    {
+        brand: "Iphone",
+        model: "IphoneX",
+        price: "300000",
+        camera: "40px",
+        ram: "8gb",
+        rom : "128gb",
+        
+    },
+]
+
+
+filterForm.addEventListener("submit",(e)=>
+{
+    row.innerHTML=""
+
+    e.preventDefault()
+    let searchName=document.querySelector("#searchName").value;
+    let searchNameSelectUpper=searchName.toUpperCase();
+    let filterModelSelect=document.querySelector(".selectTage").value;
+    console.log(filterModelSelect)
+
+    arr.forEach(element => {
+        const {brand,model,price,camera,ram,rom}=element;
+
+        switch (filterModelSelect) {
+            case "Company":
+                if(brand.toUpperCase()===searchNameSelectUpper)
+                {
+                    row.insertAdjacentHTML("beforeend",
+                    `<div class="col-md-4 mb-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title">Brand: ${brand}</h4>
+                          <h5 class="card-title">Model: ${model}</h5>
+                          <p class="card-text">Price: <strong> ${price}</strong></p>
+                          <p class="card-text">Camera: ${camera}</p>
+                          <h6 class="card-title">Ram: ${ram} Rom: ${rom}</h6>
+                          <a href="#" class="card-link">Add To Cart</a>
+                    
+                        </div>
+                    </div>
+                    </div>`);
+                }
+                break;
+
+
+
+                case "Model":
+                    if(model.toUpperCase()===searchNameSelectUpper)
+                    {
+                        row.insertAdjacentHTML("beforeend",
+                        `<div class="col-md-4 mb-4">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">Brand: ${brand}</h4>
+                              <h5 class="card-title">Model: ${model}</h5>
+                              <p class="card-text">Price: <strong> ${price}</strong></p>
+                              <p class="card-text">Camera: ${camera}</p>
+                              <h6 class="card-title">Ram: ${ram} Rom: ${rom}</h6>
+                              <a href="#" class="card-link">Add To Cart</a>
+                        
+                            </div>
+                        </div>
+                        </div>`);
+                    }
+                break;
+
+
+                case "Price":
+                    if(price.toUpperCase()===searchNameSelectUpper)
+                    {
+                        row.insertAdjacentHTML("beforeend",
+                        `<div class="col-md-4 mb-4">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">Brand: ${brand}</h4>
+                              <h5 class="card-title">Model: ${model}</h5>
+                              <p class="card-text">Price: <strong> ${price}</strong></p>
+                              <p class="card-text">Camera: ${camera}</p>
+                              <h6 class="card-title">Ram: ${ram} Rom: ${rom}</h6>
+                              <a href="#" class="card-link">Add To Cart</a>
+                        
+                            </div>
+                        </div>
+                        </div>`);
+                    }
+                break;
+
+
+                case "Camera":
+                    if(camera.toUpperCase()===searchNameSelectUpper)
+                    {
+                        row.insertAdjacentHTML("beforeend",
+                        `<div class="col-md-4 mb-4">
+                          <div class="card">
+                            <div class="card-body">
+                              <h4 class="card-title">Brand: ${brand}</h4>
+                              <h5 class="card-title">Model: ${model}</h5>
+                              <p class="card-text">Price: <strong> ${price}</strong></p>
+                              <p class="card-text">Camera: ${camera}</p>
+                              <h6 class="card-title">Ram: ${ram} Rom: ${rom}</h6>
+                              <a href="#" class="card-link">Add To Cart</a>
+                        
+                            </div>
+                        </div>
+                        </div>`);
+                    }
+                break;
+
+
+        
+            default:
+                selectFilterPara.innerHTML="Wrong Selection"
+                break;
+        }
 
 
 
 
-
-  arr.map(element => {
-    const {id,title,price,description,image_url,color}=element;
-    container.insertAdjacentHTML("beforeend", `
-    <div class="col-md-4  mb-4">
-<div class="card h-100" style="width:100%">
-<img class="card-img-top" src="${image_url}" alt="Card image" style="width:100%">
-<div class="card-body">
-  <h6 class="card-title">ID: ${id}</h6>
-  <h4 class="card-title">${title}</h4>
-  <h4 class="card-title">$${price}</h4>
-  <p class="card-text">${description}</p>
-  <p class="card-text"><strong>Colors:</strong> ${color}</p>
-
-  <a href="#" class="btn btn-primary stretched-link">Add To Cart</a>
-</div>
-</div>
-</div>
-    `
-    )
-
-  });
+    });
 
 
+})
+
+// arr.forEach(element => {
+//     const {brand,model,price,camera,ram,rom}=element
 
 
+//     row.insertAdjacentHTML("beforeend",
+// `<div class="col-md-4 mb-4">
+//   <div class="card">
+//     <div class="card-body">
+//       <h4 class="card-title">Brand: ${brand}</h4>
+//       <h5 class="card-title">Model: ${model}</h5>
+//       <p class="card-text">Price: <strong> ${price}</strong></p>
+//       <p class="card-text">Camera: ${camera}</p>
+//       <h6 class="card-title">Ram: ${ram} Rom: ${rom}</h6>
+//       <a href="#" class="card-link">Add To Cart</a>
+
+//     </div>
+// </div>
+// </div>`);
+
+
+
+// });
